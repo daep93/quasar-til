@@ -14,6 +14,7 @@ Vue.use(Quasar, {
       messageColor: 'white',
       message: '<b>Loading...</b>',
     },
+    animations: ['backInLeft', 'backOutLeft'],
   },
   plugins: { Loading },
   // iconSet: iconSet

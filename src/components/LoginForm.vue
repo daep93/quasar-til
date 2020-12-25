@@ -47,6 +47,7 @@ export default {
           password: this.pw,
         });
         this.$store.commit('setUserid', data.user.username);
+        this.$store.commit('setToken', data.token);
         this.initForm();
         this.submitting = false;
         this.$router.push('/main');

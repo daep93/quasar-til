@@ -4,7 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: { id: '' },
+  state: { id: '', token: '' },
   getters: {
     logined(state) {
       return state.id !== '';
@@ -14,8 +14,12 @@ export default new Vuex.Store({
     setUserid(state, id) {
       state.id = id;
     },
-    clearUserid(state) {
+    clearUserInfo(state) {
       state.id = '';
+      state.token = '';
+    },
+    setToken(state, token) {
+      state.token = token;
     },
   },
   actions: {},
