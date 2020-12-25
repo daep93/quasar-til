@@ -42,10 +42,11 @@ export default {
     async submitForm() {
       try {
         this.submitting = true;
-        await loginUser({
+        const { data } = await loginUser({
           username: this.id,
           password: this.pw,
         });
+        this.$store.commit('setUserid', data.user.username);
         this.initForm();
         this.submitting = false;
         this.$router.push('/main');

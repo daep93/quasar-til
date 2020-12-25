@@ -17,4 +17,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+body {
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
+}
+a {
+  text-decoration: none;
+}
+</style>
