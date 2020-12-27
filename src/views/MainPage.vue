@@ -6,8 +6,8 @@
       >
         Today I Learned
       </div>
-      <div class="q-pa-lg q-mt-md  row justify-center">
-        <div class="col-xs-8">
+      <div class="q-pa-lg q-mt-md  row justify-center ">
+        <div class="col-xs-6 q-mx-md q-px-md bg-white">
           <q-timeline color="primary">
             <post-list-item
               v-for="postItem in postItems"
@@ -18,6 +18,11 @@
         </div>
       </div>
     </div>
+    <q-page-sticky position="bottom-right" :offset="[50, 50]">
+      <router-link to="/add">
+        <q-btn fab :icon="$i.ionAdd" color="amber-8" />
+      </router-link>
+    </q-page-sticky>
   </q-page>
 </template>
 

@@ -7,9 +7,9 @@
       <q-toolbar-title>
         <div class="text-white q-ma-none text-h4">TIL</div>
       </q-toolbar-title>
-
-      <q-tabs align="left" indicator-color="primary">
-        <template v-if="isUserLogin">
+      <template v-if="isUserLogin">
+        <q-tabs align="left" indicator-color="primary">
+          <span>{{ $store.state.nickname }}님 환영합니다!</span>
           <q-route-tab
             to="/"
             label="Logout"
@@ -17,8 +17,10 @@
             style="max-width: 100px"
             @click="logoutUser"
           ></q-route-tab>
-        </template>
-        <template v-else>
+        </q-tabs>
+      </template>
+      <template v-else>
+        <q-tabs align="left">
           <q-route-tab
             to="/login"
             class="text-weight-bolder"
@@ -33,8 +35,8 @@
           >
             <div class="q-ma-none text-5">회원가입</div>
           </q-route-tab>
-        </template>
-      </q-tabs>
+        </q-tabs>
+      </template>
     </q-toolbar>
   </q-header>
 </template>

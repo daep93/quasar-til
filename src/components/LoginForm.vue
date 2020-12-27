@@ -27,8 +27,6 @@
 </template>
 
 <script>
-import { loginUser } from '@/api';
-
 export default {
   data() {
     return {
@@ -42,12 +40,11 @@ export default {
     async submitForm() {
       try {
         this.submitting = true;
-        const { data } = await loginUser({
+
+        await this.$store.dispatch('LOGIN', {
           username: this.id,
           password: this.pw,
         });
-        this.$store.commit('setUserid', data.user.username);
-        this.$store.commit('setToken', data.token);
         this.initForm();
         this.submitting = false;
         this.$router.push('/main');

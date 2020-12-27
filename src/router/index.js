@@ -24,6 +24,11 @@ const routes = [
     component: () => import('@/views/SignupPage.vue'),
   },
   {
+    path: '/add',
+    name: 'Add',
+    component: () => import('@/views/PostAddPage.vue'),
+  },
+  {
     path: '*',
     component: () => import('@/views/NotFoundPage.vue'),
   },

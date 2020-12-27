@@ -17,4 +17,7 @@ function loginUser(userData) {
 function fetchPosts() {
   return instance.get('posts');
 }
-export { registerUser, loginUser, fetchPosts };
+function createPosts(postData) {
+  return instance.post('posts', postData);
+}
+export { registerUser, loginUser, fetchPosts, createPosts };
