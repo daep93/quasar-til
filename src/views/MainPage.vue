@@ -13,6 +13,7 @@
               v-for="postItem in postItems"
               :postItem="postItem"
               :key="postItem._id"
+              @refresh="fetchData"
             ></post-list-item>
           </q-timeline>
         </div>
