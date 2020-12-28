@@ -6,18 +6,13 @@ function createInstance() {
   });
   return setInterceptors(instance);
 }
-const instance = createInstance();
+function createInstanceWithAuth(url) {
+  const instance = axios.create({
+    baseURL: `${process.env.VUE_APP_SERVER_API_URL}${url}`,
+  });
+  return instance;
+}
 
-function registerUser(userData) {
-  return instance.post('signup', userData);
-}
-function loginUser(userData) {
-  return instance.post('login', userData);
-}
-function fetchPosts() {
-  return instance.get('posts');
-}
-function createPosts(postData) {
-  return instance.post('posts', postData);
-}
-export { registerUser, loginUser, fetchPosts, createPosts };
+const instance = createInstance();
+const posts = createInstanceWithAuth('posts');
+export { instance, posts };
