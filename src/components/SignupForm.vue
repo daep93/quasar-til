@@ -16,6 +16,7 @@
         lazy-rules
         v-model="pw"
         label="Password"
+        type="password"
       />
       <q-input
         class="q-ma-md"

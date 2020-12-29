@@ -28,7 +28,7 @@ const routes = [
     component: () => import('@/views/LoginPage.vue'),
     beforeEnter: (to, from, next) => {
       if (store.getters.logined) {
-        alert('이미 로그인이 되어있습니다');
+        next('/main');
         return;
       }
       next();

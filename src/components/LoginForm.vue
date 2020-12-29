@@ -8,6 +8,7 @@
         lazy-rules
         v-model="pw"
         label="Password"
+        type="password"
       />
       <div class="row justify-end">
         <q-btn
