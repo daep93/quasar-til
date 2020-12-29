@@ -1,5 +1,7 @@
 <template>
-  <q-timeline-entry :subtitle="postItem.createdAt">
+  <q-timeline-entry
+    :subtitle="this.$moment(postItem.updatedAt).format('YYYY-MM-DD hh:mm')"
+  >
     <div>
       {{ postItem.contents }}
     </div>
