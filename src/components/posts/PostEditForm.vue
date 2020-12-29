@@ -1,7 +1,7 @@
 <template>
   <div class="q-my-lg q-py-lg ">
     <div class="text-h3 text-center text-weight-bolder text-deep-purple-5 ">
-      Created Post
+      Edit Post
     </div>
     <div class="q-pa-lg q-mt-md  row justify-center ">
       <div class="col-xs-6 q-mx-md q-px-md bg-white shadow-7 rounded-borders">
@@ -23,8 +23,8 @@
             <q-btn
               type="submit"
               color="amber-10"
-              label="Create"
-              :loading="creating"
+              label="Edit"
+              :loading="editing"
             >
               <template v-slot:loading>
                 <q-spinner-facebook />
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { createPost } from '@/api/posts';
+import { editPost, fetchPost } from '@/api/posts';
 export default {
   data() {
     return {
@@ -55,7 +55,8 @@ export default {
   methods: {
     async submitForm() {
       try {
-        await createPost({
+        const id = this.$route.params.id;
+        await editPost(id, {
           title: this.title,
           contents: this.contents,
         });
@@ -64,6 +65,19 @@ export default {
         console.log(error);
       }
     },
+  },
+  async created() {
+    const id = this.$route.params.id;
+    try {
+      this.$q.loading.show();
+      const { data } = await fetchPost(id);
+      this.title = data.title;
+      this.contents = data.contents;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      this.$q.loading.hide();
+    }
   },
 };
 </script>
