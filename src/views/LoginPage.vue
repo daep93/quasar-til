@@ -11,9 +11,23 @@
 
 <script>
 import LoginForm from '@/components/LoginForm.vue';
+import store from '@/store';
+import { Dialog } from 'quasar';
 export default {
   components: {
     LoginForm,
+  },
+  beforeRouteEnter(to, from, next) {
+    if (store.getters.logined) {
+      Dialog.create({
+        title: '불필요한 접근',
+        message: '이미 로그인이 되어있습니다.',
+      }).onOk(() => {
+        next('/main');
+      });
+    } else {
+      next();
+    }
   },
 };
 </script>

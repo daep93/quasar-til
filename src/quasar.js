@@ -3,7 +3,7 @@ import Vue from 'vue';
 import 'quasar/dist/quasar.css';
 import '@quasar/extras/material-icons/material-icons.css';
 import '@quasar/extras/ionicons-v4/ionicons-v4.css';
-import { Quasar, Loading, QSpinner } from 'quasar';
+import { Quasar, Loading, QSpinner, Dialog } from 'quasar';
 import * as iconSet from '@quasar/extras/ionicons-v5';
 Vue.prototype.$i = iconSet;
 Vue.use(Quasar, {
@@ -16,6 +16,6 @@ Vue.use(Quasar, {
     },
     animations: ['backInLeft', 'backOutLeft'],
   },
-  plugins: { Loading },
+  plugins: { Loading, Dialog },
   // iconSet: iconSet
 });

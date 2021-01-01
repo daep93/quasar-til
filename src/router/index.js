@@ -13,26 +13,26 @@ const routes = [
     path: '/main',
     name: 'Main',
     component: () => import('@/views/MainPage.vue'),
-    beforeEnter: (to, from, next) => {
-      if (!store.getters.logined) {
-        alert('로그인이 필요합니다');
-        next('/login');
-        return;
-      }
-      next();
-    },
+    // beforeEnter: (to, from, next) => {
+    //   if (!store.getters.logined) {
+    //     alert('로그인이 필요합니다');
+    //     next('/login');
+    //     return;
+    //   }
+    //   next();
+    // },
   },
   {
     path: '/login',
     name: 'Login',
     component: () => import('@/views/LoginPage.vue'),
-    beforeEnter: (to, from, next) => {
-      if (store.getters.logined) {
-        next('/main');
-        return;
-      }
-      next();
-    },
+    // beforeEnter: (to, from, next) => {
+    //   if (store.getters.logined) {
+    //     next('/main');
+    //     return;
+    //   }
+    //   next();
+    // },
   },
   {
     path: '/signup',

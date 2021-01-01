@@ -30,6 +30,8 @@
 <script>
 import { fetchPosts } from '@/api/posts';
 import PostListItem from '@/components/posts/PostListItem';
+import store from '@/store';
+import { Dialog } from 'quasar';
 export default {
   components: {
     PostListItem,
@@ -54,6 +56,16 @@ export default {
   },
   created() {
     this.fetchData();
+  },
+  beforeRouteEnter(to, from, next) {
+    if (!store.getters.logined) {
+      Dialog.create({
+        title: '접근 불가능',
+        message: '로그인을 해야합니다.',
+      }).onOk(() => next('/login'));
+    } else {
+      next();
+    }
   },
 };
 </script>
